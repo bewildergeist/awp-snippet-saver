@@ -1,7 +1,7 @@
 // Declare a window object before importing the manifest file, which sets window.__remixManifest
 const window = {};
 // TODO: This import needs to be manually updated on each build — can it be automated?
-self.importScripts("/build/manifest-393AE91F.js");
+self.importScripts("/build/manifest-8D375851.js");
 
 const manifest = window.__remixManifest;
 

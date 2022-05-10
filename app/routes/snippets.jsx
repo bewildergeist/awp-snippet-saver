@@ -16,8 +16,9 @@ import {
   useSearchParams,
   useSubmit,
 } from "@remix-run/react";
+import { json } from "@remix-run/node";
 
-import DefaultCatchBoundary from "~/components/CatchBoundary";
+import CatchBoundary from "~/components/CatchBoundary";
 import ErrorBoundary from "~/components/ErrorBoundary";
 
 import { requireUserSession } from "~/sessions.server.js";
@@ -47,7 +48,8 @@ export async function loader({ request }) {
       [sortField]: sortField === "title" ? 1 : -1,
     })
     .lean();
-  return snippets;
+
+  return json({ snippets });
 }
 
 export default function SnippetsIndex() {
@@ -55,7 +57,7 @@ export default function SnippetsIndex() {
   const [searchParams] = useSearchParams();
   const searchQuery = searchParams.get("q");
   const params = useParams();
-  const snippets = useLoaderData();
+  const { snippets } = useLoaderData();
   const submit = useSubmit();
   const searchFormRef = useRef();
 
@@ -196,10 +198,4 @@ function SortFilter({ value, searchParams, children }) {
     </div>
   );
 }
-
-export function CatchBoundary() {
-  <div className="border-3 border-red-600 p-4">
-    <DefaultCatchBoundary />
-  </div>;
-}
-export { ErrorBoundary };
+export { CatchBoundary, ErrorBoundary };
