@@ -16,6 +16,10 @@ import {
   useSearchParams,
   useSubmit,
 } from "@remix-run/react";
+import { json } from "@remix-run/node";
+
+import CatchBoundary from "~/components/CatchBoundary";
+import ErrorBoundary from "~/components/ErrorBoundary";
 
 import { requireUserSession } from "~/sessions.server.js";
 import connectDb from "~/db/connectDb.server.js";
@@ -44,7 +48,8 @@ export async function loader({ request }) {
       [sortField]: sortField === "title" ? 1 : -1,
     })
     .lean();
-  return snippets;
+
+  return json({ snippets });
 }
 
 export default function SnippetsIndex() {
@@ -52,7 +57,7 @@ export default function SnippetsIndex() {
   const [searchParams] = useSearchParams();
   const searchQuery = searchParams.get("q");
   const params = useParams();
-  const snippets = useLoaderData();
+  const { snippets } = useLoaderData();
   const submit = useSubmit();
   const searchFormRef = useRef();
 
@@ -126,7 +131,7 @@ export default function SnippetsIndex() {
           </div>
         </Form>
         <ul className="border-b border-inherit">
-          {snippets.map((snippet, i) => {
+          {snippets?.map((snippet, i) => {
             return (
               <li
                 key={snippet._id}
@@ -193,3 +198,4 @@ function SortFilter({ value, searchParams, children }) {
     </div>
   );
 }
+export { CatchBoundary, ErrorBoundary };

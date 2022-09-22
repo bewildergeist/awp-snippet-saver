@@ -1,7 +1,8 @@
 import { json, redirect } from "@remix-run/node";
 import { useActionData } from "@remix-run/react";
 import connectDb from "~/db/connectDb.server";
-
+import CatchBoundary from "~/components/CatchBoundary";
+import ErrorBoundary from "~/components/ErrorBoundary";
 import EditSnippetForm from "~/components/EditSnippetForm.jsx";
 import { requireUserSession } from "~/sessions.server.js";
 
@@ -38,3 +39,5 @@ export default function CreateSnippet() {
     </div>
   );
 }
+
+export { CatchBoundary, ErrorBoundary };

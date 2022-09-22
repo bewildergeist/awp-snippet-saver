@@ -1,5 +1,5 @@
 import { json, redirect } from "@remix-run/node";
-import { Form, Link, useCatch, useLoaderData, useLocation } from "@remix-run/react";
+import { Form, Link, useLoaderData, useLocation } from "@remix-run/react";
 import { TrashIcon, StarIcon, PencilAltIcon } from "@heroicons/react/outline";
 import CatchBoundary from "~/components/CatchBoundary";
 import ErrorBoundary from "~/components/ErrorBoundary";
