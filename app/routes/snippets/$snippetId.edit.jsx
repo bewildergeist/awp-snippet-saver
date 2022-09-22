@@ -1,5 +1,5 @@
 import { json, redirect } from "@remix-run/node";
-import { useActionData, useLoaderData, useLocation } from "@remix-run/react";
+import { useActionData, useLoaderData } from "@remix-run/react";
 import connectDb from "~/db/connectDb.server.js";
 import CatchBoundary from "~/components/CatchBoundary";
 import ErrorBoundary from "~/components/ErrorBoundary";
@@ -47,13 +47,11 @@ export async function action({ request, params }) {
 export default function EditSnippet() {
   const snippet = useLoaderData();
   const actionData = useActionData();
-  const location = useLocation();
 
   return (
     <div>
       <h1 className="text-2xl font-bold">Edit snippet</h1>
       <EditSnippetForm
-        action={location.search}
         submittedValues={actionData?.values}
         errors={actionData?.errors}
         defaultValues={snippet}

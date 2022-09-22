@@ -51,7 +51,7 @@ export default function SnippetPage() {
     <div>
       <div className="flex flex-row items-center mb-1">
         <div className="flex flex-grow flex-row items-center">
-          <Form method="post" action={location.search}>
+          <Form method="post">
             <button
               name="_action"
               value="favorite"
