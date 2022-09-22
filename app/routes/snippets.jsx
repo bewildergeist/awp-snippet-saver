@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
 import {
-  SearchIcon,
+  MagnifyingGlassIcon,
   PlusIcon,
   StarIcon,
-  LogoutIcon,
-} from "@heroicons/react/outline";
+  ArrowRightOnRectangleIcon,
+} from "@heroicons/react/24/outline";
 
 import {
   Form,
@@ -78,7 +78,7 @@ export default function SnippetsIndex() {
             <button
               type="submit"
               className="p-4 text-zinc-400 hover:text-red-600">
-              <LogoutIcon width={20} height={20} />
+              <ArrowRightOnRectangleIcon width={20} height={20} />
             </button>
           </Form>
           <h1 className="text-2xl px-4 font-bold">
@@ -112,7 +112,7 @@ export default function SnippetsIndex() {
             <button
               type="submit"
               className="px-4 py-2 text-zinc-400 hover:text-zinc-600 transition-colors isolate">
-              <SearchIcon width={20} height={20} />
+              <MagnifyingGlassIcon width={20} height={20} />
             </button>
           </div>
           <div className="flex flex-row items-center border-inherit">

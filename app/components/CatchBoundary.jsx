@@ -1,4 +1,4 @@
-import { StatusOfflineIcon } from "@heroicons/react/solid";
+import { SignalSlashIcon } from "@heroicons/react/24/solid";
 import { Link, useCatch } from "@remix-run/react";
 import { useEffect, useState } from "react";
 
@@ -45,7 +45,7 @@ export default function CatchBoundary() {
     return (
       <div>
         <div className="flex flex-row items-center gap-2">
-          <StatusOfflineIcon className="h-6 w-6 text-red-500" />
+          <SignalSlashIcon className="h-6 w-6 text-red-500" />
           <h1 className="text-2xl font-bold">You appear to be offline</h1>
         </div>
         {offlineSnippets.length === 0 ? (

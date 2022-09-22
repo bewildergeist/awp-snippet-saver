@@ -1,6 +1,10 @@
 import { json, redirect } from "@remix-run/node";
 import { Form, Link, useLoaderData, useLocation } from "@remix-run/react";
-import { TrashIcon, StarIcon, PencilAltIcon } from "@heroicons/react/outline";
+import {
+  TrashIcon,
+  StarIcon,
+  PencilSquareIcon,
+} from "@heroicons/react/24/outline";
 import CatchBoundary from "~/components/CatchBoundary";
 import ErrorBoundary from "~/components/ErrorBoundary";
 import { requireUserSession } from "~/sessions.server.js";
@@ -66,7 +70,7 @@ export default function SnippetPage() {
         <Link
           to={"edit" + location.search}
           className="block p-1 transition-colors text-zinc-400 hover:text-zinc-600">
-          <PencilAltIcon width={20} height={20} />
+          <PencilSquareIcon width={20} height={20} />
         </Link>
         <Form method="post">
           <button
