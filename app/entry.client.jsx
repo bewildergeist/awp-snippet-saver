@@ -1,7 +1,7 @@
-import { hydrate } from "react-dom";
+import { hydrateRoot } from "react-dom/client";
 import { RemixBrowser } from "@remix-run/react";
 
-hydrate(<RemixBrowser />, document);
+hydrateRoot(document, <RemixBrowser />);
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
