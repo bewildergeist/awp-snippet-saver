@@ -4,9 +4,10 @@ import { RemixBrowser } from "@remix-run/react";
 hydrateRoot(document, <RemixBrowser />);
 
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/sw.js").catch((error) => {
+  const manifest = window.__remixManifest;
+  navigator.serviceWorker
+    .register(`/sw.js?manifestUrl=${manifest.url}`)
+    .catch((error) => {
       console.error("Service worker registration failed", error);
     });
-  });
 }
