@@ -60,12 +60,13 @@ export default function CatchBoundary() {
               This page is unavailable, but these snippets have been cached for
               offline viewing, try one of them:
             </p>
-            <ul className="my-3 pl-4 list-disc">
+            <ul className="my-3 list-disc pl-4">
               {offlineSnippets.map(({ _id, title }) => (
                 <li key={_id}>
                   <Link
                     to={`/snippets/${_id}`}
-                    className="block font-bold hover:underline">
+                    className="block font-bold hover:underline"
+                  >
                     {title}
                   </Link>
                 </li>
@@ -78,7 +79,7 @@ export default function CatchBoundary() {
   }
   // Default CatchBoundary
   return (
-    <div className="text-red-500 font-bold">
+    <div className="font-bold text-red-500">
       <h1>
         {caught.status} {caught.statusText}
       </h1>

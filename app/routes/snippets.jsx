@@ -68,30 +68,34 @@ export default function SnippetsIndex() {
   }, [location.search]);
 
   return (
-    <div className="min-h-screen grid grid-cols-12 border-zinc-300 dark:border-zinc-700">
-      <div className="col-span-3 bg-zinc-100 dark:bg-zinc-900 border-r border-inherit">
-        <div className="flex justify-between items-center border-b border-inherit">
+    <div className="grid min-h-screen grid-cols-12 border-zinc-300 dark:border-zinc-700">
+      <div className="col-span-3 border-r border-inherit bg-zinc-100 dark:bg-zinc-900">
+        <div className="flex items-center justify-between border-b border-inherit">
           <Form
             method="post"
             action="/logout"
-            className="border-r border-inherit">
+            className="border-r border-inherit"
+          >
             <button
               type="submit"
-              className="p-4 text-zinc-400 hover:text-red-600">
+              className="p-4 text-zinc-400 hover:text-red-600"
+            >
               <ArrowRightOnRectangleIcon width={20} height={20} />
             </button>
           </Form>
-          <h1 className="text-2xl px-4 font-bold">
+          <h1 className="px-4 text-2xl font-bold">
             <Link
               to="/snippets"
-              className="hover:text-zinc-500 transition-colors">
+              className="transition-colors hover:text-zinc-500"
+            >
               My code snippets
             </Link>
           </h1>
           <Link
             to="/snippets/new"
             tabIndex={0}
-            className="block isolate text-zinc-400 hover:text-zinc-600 transition-colors p-4 border-l border-inherit">
+            className="isolate block border-l border-inherit p-4 text-zinc-400 transition-colors hover:text-zinc-600"
+          >
             <PlusIcon width={24} height={24} />
           </Link>
         </div>
@@ -100,23 +104,25 @@ export default function SnippetsIndex() {
           onChange={(e) => submit(e.currentTarget)}
           ref={searchFormRef}
           action={location.pathname}
-          className="border-b border-inherit">
+          className="border-b border-inherit"
+        >
           <div className="flex flex-row items-center border-b border-inherit">
             <input
               type="search"
               name="q"
               placeholder="Search by title"
               defaultValue={searchQuery}
-              className="px-4 py-2 flex-grow bg-zinc-100 dark:bg-zinc-900 isolate"
+              className="isolate flex-grow bg-zinc-100 px-4 py-2 dark:bg-zinc-900"
             />
             <button
               type="submit"
-              className="px-4 py-2 text-zinc-400 hover:text-zinc-600 transition-colors isolate">
+              className="isolate px-4 py-2 text-zinc-400 transition-colors hover:text-zinc-600"
+            >
               <MagnifyingGlassIcon width={20} height={20} />
             </button>
           </div>
           <div className="flex flex-row items-center border-inherit">
-            <span className="pl-4 text-sm text-zinc-400 flex-grow">
+            <span className="flex-grow pl-4 text-sm text-zinc-400">
               Sort by:
             </span>
             <SortFilter value="title" searchParams={searchParams}>
@@ -135,17 +141,19 @@ export default function SnippetsIndex() {
             return (
               <li
                 key={snippet._id}
-                className={i > 0 ? "border-t border-inherit" : null}>
+                className={i > 0 ? "border-t border-inherit" : null}
+              >
                 <Link
                   to={`${snippet._id}?${searchParams.toString()}`}
                   className={[
-                    "block p-4 hover:bg-zinc-200 dark:hover:bg-black transition-colors",
+                    "block p-4 transition-colors hover:bg-zinc-200 dark:hover:bg-black",
                     params.snippetId === snippet._id &&
-                      "bg-zinc-200 dark:bg-black shadow-inner",
+                      "bg-zinc-200 shadow-inner dark:bg-black",
                   ]
                     .filter(Boolean)
-                    .join(" ")}>
-                  <span className="flex flex-row justify-between items-center">
+                    .join(" ")}
+                >
+                  <span className="flex flex-row items-center justify-between">
                     <span>{snippet.title}</span>
                     {snippet.favorite ? (
                       <span className="text-amber-500">
@@ -158,7 +166,7 @@ export default function SnippetsIndex() {
                       </span>
                     ) : null}
                   </span>
-                  <span className="block text-zinc-400 text-sm">
+                  <span className="block text-sm text-zinc-400">
                     {new Date(snippet.updatedAt).toLocaleString()}
                   </span>
                 </Link>
@@ -167,7 +175,7 @@ export default function SnippetsIndex() {
           })}
         </ul>
       </div>
-      <div className="col-span-9 px-6 py-4 bg-zinc-50 dark:bg-zinc-800">
+      <div className="col-span-9 bg-zinc-50 px-6 py-4 dark:bg-zinc-800">
         <Outlet />
       </div>
     </div>
@@ -192,7 +200,8 @@ function SortFilter({ value, searchParams, children }) {
       <label
         htmlFor={id}
         tabIndex={0}
-        className="block cursor-pointer text-sm hover:text-zinc-600 px-4 py-2 transition-colors text-zinc-400 peer-checked:text-zinc-600 dark:peer-checked:text-zinc-300 peer-checked:bg-zinc-200 dark:peer-checked:bg-black peer-checked:shadow-inner">
+        className="block cursor-pointer px-4 py-2 text-sm text-zinc-400 transition-colors hover:text-zinc-600 peer-checked:bg-zinc-200 peer-checked:text-zinc-600 peer-checked:shadow-inner dark:peer-checked:bg-black dark:peer-checked:text-zinc-300"
+      >
         {children}
       </label>
     </div>

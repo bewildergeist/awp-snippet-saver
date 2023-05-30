@@ -25,9 +25,9 @@ export async function action({ request }) {
 export default function Seed() {
   const { snippetsCount, defaultSnippetsCount } = useLoaderData();
   return (
-    <div className="min-h-screen grid place-items-center">
-      <div className="rounded border-2 border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 p-6 shadow-lg">
-        <h1 className="text-2xl font-bold mb-3">Seeding the database</h1>
+    <div className="grid min-h-screen place-items-center">
+      <div className="rounded border-2 border-zinc-200 bg-zinc-50 p-6 shadow-lg dark:border-zinc-700 dark:bg-zinc-800">
+        <h1 className="mb-3 text-2xl font-bold">Seeding the database</h1>
         <p>
           You currently have <b>{snippetsCount} snippets</b> in your database.
         </p>
@@ -38,7 +38,8 @@ export default function Seed() {
         <div className="mt-4 text-right">
           <Link
             to="/"
-            className="inline-block mr-2 rounded bg-blue-700 hover:bg-blue-800 px-3 py-1 text-white font-bold">
+            className="mr-2 inline-block rounded bg-blue-700 px-3 py-1 font-bold text-white hover:bg-blue-800"
+          >
             No
           </Link>
           <Form method="post" className="inline-block">
@@ -46,7 +47,8 @@ export default function Seed() {
               type="submit"
               name="_action"
               value="seed"
-              className="rounded bg-red-600 hover:bg-red-700 px-3 py-1 text-white font-bold">
+              className="rounded bg-red-600 px-3 py-1 font-bold text-white hover:bg-red-700"
+            >
               Yes
             </button>
           </Form>

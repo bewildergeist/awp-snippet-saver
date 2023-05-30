@@ -1,4 +1,11 @@
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
+import {
+  Links,
+  LiveReload,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+} from "@remix-run/react";
 import styles from "~/tailwind.css";
 
 const THEME_COLOR = "#fafafa";
@@ -38,9 +45,9 @@ export const links = () => [
 
 export function meta() {
   return {
-    "charset": "utf-8",
-    "title": "Snippet Saver",
-    "viewport": "width=device-width,initial-scale=1",
+    charset: "utf-8",
+    title: "Snippet Saver",
+    viewport: "width=device-width,initial-scale=1",
     "apple-mobile-web-app-title": "Snippet Saver",
     "application-name": "Snippet Saver",
     "msapplication-TileColor": THEME_COLOR,
@@ -55,7 +62,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-zinc-50 dark:bg-black text-zinc-800 dark:text-zinc-200 font-sans">
+      <body className="bg-zinc-50 font-sans text-zinc-800 dark:bg-black dark:text-zinc-200">
         <Outlet />
         <ScrollRestoration />
         <Scripts />

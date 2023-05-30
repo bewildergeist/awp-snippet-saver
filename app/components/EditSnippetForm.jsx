@@ -32,7 +32,8 @@ export default function EditSnippetForm({
             submittedValues?.programmingLanguage ??
             defaultValues?.programmingLanguage
           }
-          className="p-2 appearance-none border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900">
+          className="appearance-none border border-zinc-300 bg-white p-2 dark:border-zinc-700 dark:bg-zinc-900"
+        >
           {["HTML", "CSS", "JavaScript"].map((lang) => {
             return <option key={lang}>{lang}</option>;
           })}
@@ -49,7 +50,7 @@ export default function EditSnippetForm({
       />
 
       {Object.keys(errors ?? {}).length > 0 && (
-        <ul className="mt-3 rounded bg-red-100 border border-red-500 p-3 text-red-500 list-disc list-inside">
+        <ul className="mt-3 list-inside list-disc rounded border border-red-500 bg-red-100 p-3 text-red-500">
           {Object.entries(errors).map(([key, value]) => (
             <li key={key}>
               <b>{key}:</b> {value.properties.message}
@@ -68,7 +69,8 @@ function Button({ type = "button", children }) {
   return (
     <button
       type={type}
-      className="rounded border border-zinc-300 dark:border-zinc-700 bg-zinc-300 dark:bg-zinc-600 hover:bg-zinc-400 dark:hover:bg-zinc-700 text-inherit font-bold px-4 py-2 transition-colors">
+      className="rounded border border-zinc-300 bg-zinc-300 px-4 py-2 font-bold text-inherit transition-colors hover:bg-zinc-400 dark:border-zinc-700 dark:bg-zinc-600 dark:hover:bg-zinc-700"
+    >
       {children}
     </button>
   );
@@ -109,7 +111,7 @@ function Input({
 
 function FormLabel({ htmlFor, children }) {
   return (
-    <label htmlFor={htmlFor} className="block font-semibold mb-1">
+    <label htmlFor={htmlFor} className="mb-1 block font-semibold">
       {children}
     </label>
   );

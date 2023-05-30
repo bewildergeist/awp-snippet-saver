@@ -70,7 +70,7 @@ export default function Register() {
     <div className="m-3">
       <h2>Register</h2>
       {actionData?.errorMessage ? (
-        <p className="text-red-500 font-bold my-3">{actionData.errorMessage}</p>
+        <p className="my-3 font-bold text-red-500">{actionData.errorMessage}</p>
       ) : null}
       <Form method="post" className="text-inherit">
         <input
@@ -78,24 +78,24 @@ export default function Register() {
           name="username"
           id="username"
           placeholder="Username"
-          className="block my-3 border rounded px-2 py-1 w-full lg:w-1/2 bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700"
+          className="my-3 block w-full rounded border border-zinc-300 bg-white px-2 py-1 dark:border-zinc-700 dark:bg-zinc-900 lg:w-1/2"
         />
         <input
           type="password"
           name="password"
           id="password"
           placeholder="Password"
-          className="block my-3 border rounded px-2 py-1 w-full lg:w-1/2 bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700"
+          className="my-3 block w-full rounded border border-zinc-300 bg-white px-2 py-1 dark:border-zinc-700 dark:bg-zinc-900 lg:w-1/2"
         />
         <input
           type="password"
           name="repeatPassword"
           id="repeatPassword"
           placeholder="Repeat password"
-          className="block my-3 border rounded px-2 py-1 w-full lg:w-1/2 bg-white dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700"
+          className="my-3 block w-full rounded border border-zinc-300 bg-white px-2 py-1 dark:border-zinc-700 dark:bg-zinc-900 lg:w-1/2"
         />
         <div className="flex flex-row items-center gap-3">
-          <button type="submit" className="my-3 p-2 border rounded">
+          <button type="submit" className="my-3 rounded border p-2">
             Sign up
           </button>
           <span className="italic">or</span>
