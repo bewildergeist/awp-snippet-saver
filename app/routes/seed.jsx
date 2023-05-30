@@ -15,7 +15,7 @@ export async function loader() {
 export async function action({ request }) {
   const db = await connectDb();
   const formData = await request.formData();
-  if (formData.get("_action") === "seed") {
+  if (formData.get("intent") === "seed") {
     await db.models.Snippet.deleteMany({});
     await db.models.Snippet.insertMany(seedData.snippets);
     return redirect("/snippets");
@@ -45,7 +45,7 @@ export default function Seed() {
           <Form method="post" className="inline-block">
             <button
               type="submit"
-              name="_action"
+              name="intent"
               value="seed"
               className="rounded bg-red-600 px-3 py-1 font-bold text-white hover:bg-red-700"
             >
